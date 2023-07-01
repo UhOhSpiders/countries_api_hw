@@ -18,20 +18,7 @@ const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingC
   const showBorderingCountries = borderingCountries.map((country, index) => {console.log(country)
     
     return <BorderingCountryListItem country={country} key={index}/>
-     
   })
-
-  if (favCountrySelected){
-    return(
-  <>
-  <p>{country.flag}The capital of {country.name.common} is {country.capital}</p>
-  <h3>Bordering Countries Are:</h3>
-  <ul>
-    {showBorderingCountries}
-  </ul>
-  <p>This is one of your favourite countries</p>
-  </>)
-  }else{
     return(
 <>
 <p>{country.flag}The capital of {country.name.common} is {country.capital}</p>
@@ -39,13 +26,11 @@ const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingC
 <ul>
     {showBorderingCountries}
   </ul>
-  <FavouriteButton onClick={onClick} value={country} favCountrySelected={favCountrySelected}/>
-  {/* <button onClick={onClick} value={country}>Add Country To Favourites</button> */}
-      
+  <FavouriteButton onClick={onClick} value={country} favCountrySelected={favCountrySelected}/> 
   </>
     )
   }
   
-}
+
 
 export default CountryDetail;
