@@ -1,0 +1,10 @@
+.main-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    background-color: peachpuff;
+    padding: 40px;
+    border-radius: 15px;
+  }
