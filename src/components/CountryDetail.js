@@ -1,15 +1,22 @@
 import React from 'react';
+// import BorderingCountryInfo from './BorderingCountryInfo';
 import BorderingCountryListItem from './BorderingCountryListItem';
+import FavouriteButton from './FavouriteButton';
 
 const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingCountries}) => {
 
+  // const hideButton = () => {
+  //   return <p>Added!</p>
+  // }
+  
   const onClick = (event) => {
     console.log(event);
-    // console.log({country})
     addToFavourites({country});
-  }
+    }
+  
 
-  const showBorderingCountries = borderingCountries.map((country, index) => {console.log(country) 
+  const showBorderingCountries = borderingCountries.map((country, index) => {console.log(country)
+    
     return <BorderingCountryListItem country={country} key={index}/>
      
   })
@@ -17,8 +24,8 @@ const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingC
   if (favCountrySelected){
     return(
   <>
-  <h3>Bordering Countries Are:</h3>
   <p>{country.flag}The capital of {country.name.common} is {country.capital}</p>
+  <h3>Bordering Countries Are:</h3>
   <ul>
     {showBorderingCountries}
   </ul>
@@ -32,7 +39,8 @@ const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingC
 <ul>
     {showBorderingCountries}
   </ul>
-  <button onClick={onClick} value={country}>Add Country To Favourites</button>
+  <FavouriteButton onClick={onClick} value={country} favCountrySelected={favCountrySelected}/>
+  {/* <button onClick={onClick} value={country}>Add Country To Favourites</button> */}
       
   </>
     )

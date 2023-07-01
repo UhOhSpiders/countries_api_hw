@@ -5,6 +5,7 @@ import WorldPopulation from '../components/WorldPopulation';
 import './CountriesContainer.css';
 import CountrySelect from '../components/CountrySelect';
 import FavouritesList from '../components/FavouritesList';
+// import BorderingCountryInfo from '../components/BorderingCountryInfo';
 
 const CountryContainer = () => {
     const [countries, setCountries] = useState([]);
@@ -18,7 +19,11 @@ const CountryContainer = () => {
       getCountries();
     //   getCountriesWithBorders();
     }, [])
-      
+    
+    // useEffect(() => {
+    //   checkForDuplicates();
+    // },[favCountries])
+
    const getCountries = function(){
         // this fetch function gives us a promise which can be processed when it gets returned
         fetch('https://restcountries.com/v3.1/all')
@@ -42,6 +47,7 @@ const CountryContainer = () => {
         }
 
     const addToFavourites = (country) => {
+            setFavCountrySelected(true);
             setFavCountries([...favCountries, country])
     }
 
@@ -77,7 +83,9 @@ const getBorderingCountries = (selectedCountry) => {
         <div className="main-container">
             
             <CountrySelect countries={countries} onCountrySelect={onCountrySelect}></CountrySelect>
+            
             {selectedCountry ? <CountryDetail borderingCountries={borderingCountries} addToFavourites={addToFavourites} country={selectedCountry} favCountrySelected={favCountrySelected}/> : null}
+            
             <WorldPopulation countries={countries}/>
             <FavouritesList favCountries={favCountries}></FavouritesList>
         </div>
