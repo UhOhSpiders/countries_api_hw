@@ -5,21 +5,12 @@ import FavouriteButton from './FavouriteButton';
 
 const CountryDetail = ({country, addToFavourites, favCountrySelected, borderingCountries}) => {
 
-  // const hideButton = () => {
-  //   return <p>Added!</p>
-  // }
-  
-  const onClick = (event) => {
+const onClick = (event) => {
     console.log(event);
     addToFavourites({country});
     console.log(borderingCountries);
     }
-  
 
-  // const showBorderingCountries = borderingCountries.map((country, index) => {console.log(country)
-    
-  //   return <BorderingCountryListItem country={country} key={index}/>
-  // })
     return(
 <>
 <p>{country.flag}The capital of {country.name.common} is {country.capital}</p>

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CountryList from '../components/CountryList';
 import CountryDetail from '../components/CountryDetail';
 import WorldPopulation from '../components/WorldPopulation';
 import './CountriesContainer.css';
 import CountrySelect from '../components/CountrySelect';
 import FavouritesList from '../components/FavouritesList';
-// import BorderingCountryInfo from '../components/BorderingCountryInfo';
 
 const CountryContainer = () => {
     const [countries, setCountries] = useState([]);
@@ -17,14 +15,9 @@ const CountryContainer = () => {
     // this triggers the getCountries as soon as it loads as it has been given an empty array as its dependency
     useEffect(() => {
       getCountries();
-    //   getCountriesWithBorders();
     }, [])
     
-    // useEffect(() => {
-    //   checkForDuplicates();
-    // },[favCountries])
-
-   const getCountries = function(){
+    const getCountries = function(){
         // this fetch function gives us a promise which can be processed when it gets returned
         fetch('https://restcountries.com/v3.1/all')
         // it THEN gets the results and converts it to a JSON object using the .json method.
@@ -68,7 +61,6 @@ const getBorderingCountries = (selectedCountry) => {
             selectedBorderingCountries.push(currentCountry.name.common)
         }
       }
-    //   console.log(selectedBorderingCountries)
       setBorderingCountres([...selectedBorderingCountries])
     }
     
@@ -81,11 +73,11 @@ const getBorderingCountries = (selectedCountry) => {
 
     return (
         <div className="main-container">
-            
+            <h1>Countries of The World</h1>
             <CountrySelect countries={countries} onCountrySelect={onCountrySelect}></CountrySelect>
             
             {selectedCountry ? <CountryDetail borderingCountries={borderingCountries} addToFavourites={addToFavourites} country={selectedCountry} favCountrySelected={favCountrySelected}/> : null}
-            
+            {/* <MapContainer/> */}
             <WorldPopulation countries={countries}/>
             <FavouritesList favCountries={favCountries}></FavouritesList>
         </div>

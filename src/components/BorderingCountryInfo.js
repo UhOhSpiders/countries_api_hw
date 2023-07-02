@@ -13,7 +13,6 @@ if (borderingCountries.length >0){
 {borderingCountryListItem}
 </>
 )}
-
 else{
   return(
 <p> This country is an island!</p>
