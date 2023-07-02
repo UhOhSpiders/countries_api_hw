@@ -68,7 +68,7 @@ const getBorderingCountries = (selectedCountry) => {
             selectedBorderingCountries.push(currentCountry.name.common)
         }
       }
-      console.log(selectedBorderingCountries)
+    //   console.log(selectedBorderingCountries)
       setBorderingCountres([...selectedBorderingCountries])
     }
     
